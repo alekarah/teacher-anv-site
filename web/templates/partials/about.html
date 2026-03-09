@@ -1,0 +1,85 @@
+{{ define "about" }}
+<section class="rings-section" id="about">
+  <div class="rings-inner">
+
+    <div class="about-text reveal">
+      <div class="sec-tag">🪵 Годовые кольца · Обо мне</div>
+      <h2 class="about-h">Каждый год —<br><em>новое кольцо</em> опыта</h2>
+      <p class="about-p">Меня зовут {{ .TeacherName }}. Я учитель начальных классов — как у дерева самая плотная сердцевина является основой всего, так и в моей работе основа — любовь к детям и профессии.</p>
+      <p class="about-p">За годы преподавания я помогла многим детям открыть в себе способность к учёбе. Наведи на кольцо, чтобы узнать больше →</p>
+      <div class="wood-facts">
+        <div class="wf">
+          <div class="wf-icon">🎓</div>
+          <div class="wf-title">Образование</div>
+          <div class="wf-text">Высшее педагогическое, начальные классы</div>
+        </div>
+        <div class="wf">
+          <div class="wf-icon">📚</div>
+          <div class="wf-title">Программы</div>
+          <div class="wf-text">Занков, Школа России, Перспектива</div>
+        </div>
+        <div class="wf">
+          <div class="wf-icon">🎮</div>
+          <div class="wf-title">Методика</div>
+          <div class="wf-text">Учёба через интересы ребёнка</div>
+        </div>
+        <div class="wf">
+          <div class="wf-icon">💬</div>
+          <div class="wf-title">Связь</div>
+          <div class="wf-text">Отчёт родителям после каждого занятия</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ring-diagram-wrap reveal" style="transition-delay:.15s">
+      <div class="ring-diagram" id="ringDiagram">
+        <svg id="bigRingSvg" viewBox="0 0 480 480" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="ws">
+              <feDropShadow dx="0" dy="6" stdDeviation="16" flood-color="rgba(122,78,40,.18)"/>
+            </filter>
+          </defs>
+          <g filter="url(#ws)">
+            <circle cx="240" cy="240" r="228" fill="#faf3e8" class="i-ring" data-ring="6" style="cursor:pointer"/>
+            <circle cx="240" cy="240" r="196" fill="#f6ead4" class="i-ring" data-ring="5" style="cursor:pointer"/>
+            <circle cx="240" cy="240" r="163" fill="#f0dfc0" class="i-ring" data-ring="4" style="cursor:pointer"/>
+            <circle cx="240" cy="240" r="130" fill="#e8cfa6" class="i-ring" data-ring="3" style="cursor:pointer"/>
+            <circle cx="240" cy="240" r="97"  fill="#debb8e" class="i-ring" data-ring="2" style="cursor:pointer"/>
+            <circle cx="240" cy="240" r="64"  fill="#d4a878" class="i-ring" data-ring="1" style="cursor:pointer"/>
+            <circle cx="240" cy="240" r="34"  fill="#c8956a" class="i-ring" data-ring="0" style="cursor:pointer"/>
+            <circle cx="240" cy="240" r="12"  fill="#8a4e28" pointer-events="none"/>
+            <circle cx="240" cy="240" r="228" fill="none" stroke="rgba(122,78,40,.1)"  stroke-width=".8"/>
+            <circle cx="240" cy="240" r="196" fill="none" stroke="rgba(122,78,40,.1)"  stroke-width=".8"/>
+            <circle cx="240" cy="240" r="163" fill="none" stroke="rgba(122,78,40,.1)"  stroke-width=".8"/>
+            <circle cx="240" cy="240" r="130" fill="none" stroke="rgba(122,78,40,.12)" stroke-width="1"/>
+            <circle cx="240" cy="240" r="97"  fill="none" stroke="rgba(122,78,40,.12)" stroke-width="1"/>
+            <circle cx="240" cy="240" r="64"  fill="none" stroke="rgba(80,40,10,.15)"  stroke-width="1"/>
+            <circle cx="240" cy="240" r="34"  fill="none" stroke="rgba(80,40,10,.18)"  stroke-width="1.2"/>
+            <g stroke="rgba(122,78,40,.06)" stroke-width=".8">
+              <line x1="240" y1="12"  x2="240" y2="468"/>
+              <line x1="12"  y1="240" x2="468" y2="240"/>
+              <line x1="80"  y1="80"  x2="400" y2="400"/>
+              <line x1="400" y1="80"  x2="80"  y2="400"/>
+            </g>
+            <text x="240" y="22"  text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="10" fill="rgba(122,78,40,.4)">Опыт</text>
+            <text x="240" y="54"  text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="10" fill="rgba(122,78,40,.38)">Подход</text>
+            <text x="240" y="88"  text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="10" fill="rgba(122,78,40,.35)">Методика</text>
+            <text x="240" y="122" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="10" fill="rgba(122,78,40,.33)">Предметы</text>
+            <text x="240" y="156" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="10" fill="rgba(80,40,10,.35)">Результат</text>
+            <text x="240" y="190" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="10" fill="rgba(80,40,10,.38)">Связь</text>
+            <text x="228" y="228" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9"  fill="rgba(250,230,200,.6)">Суть</text>
+            <circle id="hlRing" cx="240" cy="240" r="0" fill="none" stroke="rgba(122,78,40,.55)" stroke-width="3" opacity="0" pointer-events="none" style="transition:all .2s"/>
+          </g>
+          <circle cx="240" cy="240" r="236" fill="none" stroke="#7a4e28" stroke-width="14" opacity=".3"/>
+        </svg>
+        <div class="ring-info" id="ringInfo">
+          <span class="ri-icon" id="riIcon">🌱</span>
+          <div class="ri-title" id="riTitle">Кольцо</div>
+          <div class="ri-desc"  id="riDesc">Наведи на кольцо</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{{ end }}

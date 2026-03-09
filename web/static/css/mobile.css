@@ -1,0 +1,27 @@
+/* ═══════════════════════════════════
+   MOBILE — медиазапросы
+   (детальная адаптация — Шаг 5)
+═══════════════════════════════════ */
+@media (max-width: 900px) {
+  nav { padding: 1rem 4vw; }
+  .nav-links { display: none; }
+  .nav-burger { display: flex; }
+
+  .rings-inner { grid-template-columns: 1fr; }
+  .ring-diagram { width: min(320px, 80vw); height: min(320px, 80vw); }
+
+  .panel-inner { grid-template-columns: 1fr; padding: 7rem 4vw 4rem; text-align: center; }
+  .panel-desc  { margin: 0 auto 1.5rem; }
+  .panel-art   { display: none; }
+  .info-cards  { justify-content: center; }
+
+  .svc-grid, .rv-grid { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .season-nav { display: none; }
+  footer { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 600px) {
+  .svc-grid, .rv-grid { grid-template-columns: 1fr; }
+  .wood-facts { grid-template-columns: 1fr; }
+}

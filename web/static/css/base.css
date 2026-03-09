@@ -1,0 +1,108 @@
+/* ═══════════════════════════════════
+   BASE — переменные, сброс, типографика
+═══════════════════════════════════ */
+:root {
+  --r1: #c8956a;
+  --r2: #d4a878;
+  --r3: #debb8e;
+  --r4: #e8cfa6;
+  --r5: #f0dfc0;
+  --r6: #f6ead4;
+  --r7: #faf3e8;
+  --bark: #7a4e28;
+  --bark-mid: #a06838;
+  --cream: #fdf8f0;
+  --text: #2a1a0e;
+  --text-mid: #6b4a2a;
+  --text-soft: #a08060;
+  --gold: #c89030;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Кастомный курсор */
+.cur {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--bark);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
+  transition: width .15s, height .15s;
+}
+.cur.h {
+  width: 28px;
+  height: 28px;
+  opacity: .35;
+}
+
+/* Прогресс-бар */
+.prog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 700;
+  background: rgba(122, 78, 40, .1);
+}
+.prog-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--r1), var(--bark-mid), #5cb878, #6090d8);
+  transition: width .1s;
+}
+
+/* Reveal-анимация при скролле */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Разделитель между секциями */
+.section-divider {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(180deg, var(--r5) 0%, #e8f4ee 100%);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+}
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  flex: 1;
+  max-width: 80px;
+  height: 1px;
+  background: rgba(122, 78, 40, .2);
+}

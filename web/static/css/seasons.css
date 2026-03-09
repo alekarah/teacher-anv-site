@@ -1,0 +1,201 @@
+/* ═══════════════════════════════════
+   SEASONS — sticky fullscreen панели
+═══════════════════════════════════ */
+.seasons-scroll {
+  position: relative;
+}
+
+.season-panel {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.s-spring  { background: linear-gradient(135deg, #ffe0ec 0%, #ffc8d8 30%, #e8b4d0 60%, #d4a0c0 100%); }
+.s-summer  { background: linear-gradient(135deg, #c8f0d4 0%, #90d8a8 30%, #5cb878 60%, #3a9454 100%); }
+.s-autumn  { background: linear-gradient(135deg, #fff0c8 0%, #f8d080 30%, #e89040 60%, #c05818 100%); }
+.s-winter  { background: linear-gradient(135deg, #d8eeff 0%, #a8ccf0 30%, #6090d8 60%, #2850a8 100%); }
+
+.panel-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4vw;
+  padding: 8rem 6vw 4rem;
+  width: 100%;
+  height: 100%;
+}
+
+/* Текст */
+.season-label {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  opacity: .7;
+}
+.season-label::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.panel-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  line-height: 1.08;
+  font-weight: 700;
+  margin-bottom: 1.4rem;
+}
+.panel-h em {
+  font-style: italic;
+}
+
+.panel-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 420px;
+  margin-bottom: 2rem;
+  opacity: .85;
+}
+
+/* Теги-карточки */
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-bottom: 2rem;
+}
+.info-card {
+  background: rgba(255, 255, 255, .35);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, .5);
+  border-radius: 14px;
+  padding: .65rem 1rem;
+  font-size: .82rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  transition: background .2s, transform .2s;
+}
+.info-card:hover {
+  background: rgba(255, 255, 255, .55);
+  transform: translateY(-2px);
+}
+
+/* Кнопка */
+.panel-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  background: rgba(255, 255, 255, .9);
+  font-weight: 700;
+  font-size: .95rem;
+  padding: .9rem 2rem;
+  border-radius: 100px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, .15);
+  transition: transform .2s, box-shadow .2s;
+}
+.panel-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, .2);
+  background: white;
+}
+
+/* Цвета по сезону */
+.s-spring .season-label, .s-spring .panel-h, .s-spring .panel-desc { color: #7a2850; }
+.s-spring .panel-btn  { color: #7a2850; }
+.s-spring .info-card  { color: #7a2850; }
+
+.s-summer .season-label, .s-summer .panel-h, .s-summer .panel-desc { color: #1a4a28; }
+.s-summer .panel-btn  { color: #1a4a28; }
+.s-summer .info-card  { color: #1a4a28; }
+
+.s-autumn .season-label, .s-autumn .panel-h, .s-autumn .panel-desc { color: #5a2000; }
+.s-autumn .panel-btn  { color: #5a2000; }
+.s-autumn .info-card  { color: #5a2000; }
+
+.s-winter .season-label, .s-winter .panel-h, .s-winter .panel-desc { color: #0a1e4a; }
+.s-winter .panel-btn  { color: #0a1e4a; }
+.s-winter .info-card  { color: #0a1e4a; }
+
+/* Изображение */
+.panel-art {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem 0;
+}
+.season-img {
+  width: min(420px, 42vw);
+  height: min(420px, 42vw);
+  object-fit: contain;
+  border-radius: 32px;
+  filter: drop-shadow(0 16px 48px rgba(0, 0, 0, .18));
+  animation: imgFloat 5s ease-in-out infinite;
+}
+@keyframes imgFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* Навигация точками */
+.season-nav {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+}
+.sn-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .15);
+  cursor: pointer;
+  transition: background .3s, transform .3s;
+}
+.sn-dot.active {
+  background: white;
+  transform: scale(1.5);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+}
+
+/* Частицы */
+.particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.particle {
+  position: absolute;
+  animation: particleFall linear infinite;
+  opacity: 0;
+}
+@keyframes particleFall {
+  0%   { opacity: 0;  transform: translateY(-20px) rotate(0deg); }
+  8%   { opacity: .9; }
+  90%  { opacity: .6; }
+  100% { opacity: 0;  transform: translateY(102vh) rotate(480deg) translateX(30px); }
+}

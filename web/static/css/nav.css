@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════
+   NAV
+═══════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5vw;
+  background: rgba(253, 248, 240, .92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(122, 78, 40, .12);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--bark);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  text-decoration: none;
+}
+
+.nav-ring-mini {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2.5px solid var(--bark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nav-ring-mini::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--r1);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+.nav-links a {
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .07em;
+  color: var(--text-soft);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav-links a:hover {
+  color: var(--bark);
+}
+
+.nav-cta {
+  background: var(--bark);
+  color: var(--cream);
+  font-size: .82rem;
+  font-weight: 600;
+  padding: .55rem 1.4rem;
+  border-radius: 100px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(122, 78, 40, .3);
+  transition: background .2s, transform .2s;
+}
+.nav-cta:hover {
+  background: var(--bark-mid);
+  transform: translateY(-2px);
+}
+
+/* Гамбургер (скрыт на десктопе) */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--bark);
+  border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}

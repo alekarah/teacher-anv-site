@@ -1,0 +1,12 @@
+.env
+
+/server
+/cmd/server/server
+
+go.sum
+
+.DS_Store
+Thumbs.db
+
+.claude/
+PLAN.md

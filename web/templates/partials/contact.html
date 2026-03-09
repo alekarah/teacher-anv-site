@@ -1,0 +1,42 @@
+{{ define "contact" }}
+<section class="contact-sec" id="contact">
+  <div class="ct-inner">
+    <div class="ct-tag">Записаться</div>
+    <h2 class="ct-h">Начнём новый <em>сезон</em> вместе? 🌱</h2>
+    <p class="ct-sub">Оставьте заявку — свяжусь в течение нескольких часов.</p>
+    <form class="form" id="contactForm">
+      <div class="form-row">
+        <div class="field">
+          <label for="f-name">Ваше имя</label>
+          <input id="f-name" name="name" type="text" placeholder="Мария" required>
+        </div>
+        <div class="field">
+          <label for="f-phone">Телефон / Telegram</label>
+          <input id="f-phone" name="phone" type="text" placeholder="+7 999 000-00-00" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-child">Имя ребёнка</label>
+          <input id="f-child" name="child" type="text" placeholder="Саша">
+        </div>
+        <div class="field">
+          <label for="f-grade">Класс</label>
+          <select id="f-grade" name="grade">
+            <option>Дошкольник</option>
+            <option>1 класс</option>
+            <option>2 класс</option>
+            <option>3 класс</option>
+            <option>4 класс</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-message">Что хотите улучшить?</label>
+        <textarea id="f-message" name="message" placeholder="Расскажите о ситуации..."></textarea>
+      </div>
+      <button type="submit" class="form-btn">🌸 Начать новый сезон</button>
+    </form>
+  </div>
+</section>
+{{ end }}

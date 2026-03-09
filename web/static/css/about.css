@@ -1,0 +1,159 @@
+/* ═══════════════════════════════════
+   ABOUT — секция с кольцами
+═══════════════════════════════════ */
+.rings-section {
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--r7) 0%, var(--r6) 40%, var(--r5) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 8rem 6vw 5rem;
+  display: flex;
+  align-items: center;
+}
+.rings-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(92deg, transparent 0, transparent 18px, rgba(160, 104, 56, .025) 18px, rgba(160, 104, 56, .025) 20px),
+    repeating-linear-gradient(178deg, transparent 0, transparent 40px, rgba(160, 104, 56, .015) 40px, rgba(160, 104, 56, .015) 42px);
+}
+
+.rings-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5vw;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Текстовая часть */
+.about-text .sec-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: .7rem;
+}
+.about-text .sec-tag::before {
+  content: '';
+  width: 18px;
+  height: 1.5px;
+  background: var(--bark-mid);
+  border-radius: 2px;
+}
+
+.about-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: .8rem;
+}
+.about-h em {
+  font-style: italic;
+  color: var(--bark);
+}
+
+.about-p {
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: .9rem;
+  font-size: .97rem;
+}
+
+/* Карточки-факты */
+.wood-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .8rem;
+  margin-top: 1.4rem;
+}
+.wf {
+  background: rgba(255, 255, 255, .65);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(160, 104, 56, .15);
+  transition: transform .2s, box-shadow .2s;
+}
+.wf:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(122, 78, 40, .12);
+}
+.wf-icon {
+  font-size: 1.4rem;
+  margin-bottom: .4rem;
+}
+.wf-title {
+  font-weight: 600;
+  font-size: .85rem;
+  color: var(--text);
+  margin-bottom: .2rem;
+}
+.wf-text {
+  font-size: .78rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+/* Диаграмма колец */
+.ring-diagram-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ring-diagram {
+  position: relative;
+  width: min(480px, 45vw);
+  height: min(480px, 45vw);
+}
+#bigRingSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.ring-info {
+  position: absolute;
+  background: white;
+  border-radius: 18px;
+  padding: 1rem 1.2rem;
+  border: 1.5px solid rgba(160, 104, 56, .2);
+  box-shadow: 0 8px 28px rgba(122, 78, 40, .15);
+  font-size: .83rem;
+  max-width: 180px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .2s;
+  z-index: 10;
+  text-align: center;
+}
+.ring-info.show {
+  opacity: 1;
+}
+.ri-icon {
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: .3rem;
+}
+.ri-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: .15rem;
+}
+.ri-desc {
+  font-size: .75rem;
+  color: var(--text-soft);
+  line-height: 1.45;
+}

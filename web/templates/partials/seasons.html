@@ -1,0 +1,107 @@
+{{ define "seasons" }}
+<div class="section-divider">🌸 прокрути вниз · четыре сезона занятий 🍂</div>
+
+<div class="season-nav" id="seasonNav">
+  <div class="sn-dot" data-s="0"></div>
+  <div class="sn-dot" data-s="1"></div>
+  <div class="sn-dot" data-s="2"></div>
+  <div class="sn-dot" data-s="3"></div>
+</div>
+
+<div class="seasons-scroll" id="seasonsScroll">
+
+  <!-- SPRING -->
+  <div style="height:100vh;position:relative;" data-season-wrap>
+    <div class="season-panel s-spring" data-season-panel="0">
+      <div class="particles" id="pSpring"></div>
+      <div class="panel-inner">
+        <div class="panel-text">
+          <div class="season-label">🌸 Весна · Знакомство</div>
+          <h2 class="panel-h">Первый урок —<br><em>начало всего</em></h2>
+          <p class="panel-desc">{{ .TeacherName }} — учитель начальных классов. Как весна пробуждает природу, я помогаю детям расцветать в учёбе.</p>
+          <div class="info-cards">
+            <div class="info-card">🎓 Большой опыт</div>
+            <div class="info-card">👧 1–4 классы</div>
+            <div class="info-card">🌐 Онлайн</div>
+          </div>
+          <a href="#about" class="panel-btn">🌸 Обо мне подробнее</a>
+        </div>
+        <div class="panel-art">
+          <img class="season-img" src="/static/img/spring.png" alt="Весна — начало занятий">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMER -->
+  <div style="height:100vh;position:relative;" data-season-wrap>
+    <div class="season-panel s-summer" data-season-panel="1">
+      <div class="particles" id="pSummer"></div>
+      <div class="panel-inner">
+        <div class="panel-text">
+          <div class="season-label">🌿 Лето · Рост</div>
+          <h2 class="panel-h">Знания растут<br><em>каждый урок</em></h2>
+          <p class="panel-desc">Индивидуальный подход, игровые методики, связь с родителями после каждого занятия. Ваш ребёнок расцветает как дерево в разгар лета.</p>
+          <div class="info-cards">
+            <div class="info-card">📖 Русский язык</div>
+            <div class="info-card">🔢 Математика</div>
+            <div class="info-card">📚 Чтение</div>
+            <div class="info-card">✏️ Подготовка к школе</div>
+          </div>
+          <a href="#services" class="panel-btn">🌿 Все занятия</a>
+        </div>
+        <div class="panel-art">
+          <img class="season-img" src="/static/img/summer.png" alt="Лето — активные занятия">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTUMN -->
+  <div style="height:100vh;position:relative;" data-season-wrap>
+    <div class="season-panel s-autumn" data-season-panel="2">
+      <div class="particles" id="pAutumn"></div>
+      <div class="panel-inner">
+        <div class="panel-text">
+          <div class="season-label">🍂 Осень · Урожай</div>
+          <h2 class="panel-h">Результаты видны<br><em>в оценках и уверенности</em></h2>
+          <p class="panel-desc">Два-три месяца занятий — и пробел восполнен, оценки улучшены. Ребёнок благодарит вас успехом в школе.</p>
+          <div class="info-cards">
+            <div class="info-card">📈 Улучшение оценок</div>
+            <div class="info-card">💪 Уверенность в себе</div>
+            <div class="info-card">✏️ Самостоятельность</div>
+          </div>
+          <a href="#reviews" class="panel-btn">🍂 Отзывы</a>
+        </div>
+        <div class="panel-art">
+          <img class="season-img" src="/static/img/autumn.png" alt="Осень — результаты">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WINTER -->
+  <div style="height:100vh;position:relative;" data-season-wrap>
+    <div class="season-panel s-winter" data-season-panel="3">
+      <div class="particles" id="pWinter"></div>
+      <div class="panel-inner">
+        <div class="panel-text">
+          <div class="season-label">❄️ Зима · Мудрость</div>
+          <h2 class="panel-h">Знания, которые<br><em>останутся навсегда</em></h2>
+          <p class="panel-desc">Устойчивые навыки, которые ребёнок унесёт с собой в жизнь. Хранит силу для нового расцвета — как зимнее дерево.</p>
+          <div class="info-cards">
+            <div class="info-card">🌐 Онлайн и офлайн</div>
+            <div class="info-card">📅 Гибкое расписание</div>
+            <div class="info-card">🎁 Пробное занятие</div>
+          </div>
+          <a href="#contact" class="panel-btn">❄️ Записаться</a>
+        </div>
+        <div class="panel-art">
+          <img class="season-img" src="/static/img/winter.png" alt="Зима — прочные знания">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{{ end }}
