@@ -83,26 +83,3 @@ body {
   transform: none;
 }
 
-/* Разделитель между секциями */
-.section-divider {
-  text-align: center;
-  padding: 2rem;
-  background: linear-gradient(180deg, var(--r5) 0%, #e8f4ee 100%);
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--text-soft);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .8rem;
-}
-.section-divider::before,
-.section-divider::after {
-  content: '';
-  flex: 1;
-  max-width: 80px;
-  height: 1px;
-  background: rgba(122, 78, 40, .2);
-}

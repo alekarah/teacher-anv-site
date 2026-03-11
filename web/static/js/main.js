@@ -15,6 +15,15 @@ if (cur) {
   });
 }
 
+// Nav: прозрачный над hero, непрозрачный при скролле
+const navEl = document.querySelector('nav');
+if (navEl) {
+  const heroH = document.getElementById('hero')?.offsetHeight || window.innerHeight;
+  const onScroll = () => navEl.classList.toggle('scrolled', window.scrollY > heroH * 0.85);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+}
+
 // Прогресс-бар при скролле
 const progFill = document.getElementById('prog');
 if (progFill) {

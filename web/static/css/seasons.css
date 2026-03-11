@@ -98,21 +98,22 @@
 .panel-btn {
   display: inline-flex;
   align-items: center;
-  gap: .6rem;
-  background: rgba(255, 255, 255, .9);
+  gap: .5rem;
+  background: white;
   font-weight: 700;
-  font-size: .95rem;
-  padding: .9rem 2rem;
+  font-size: 1rem;
+  padding: 1rem 2.2rem;
   border-radius: 100px;
   text-decoration: none;
   border: none;
   cursor: pointer;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, .15);
-  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .18);
+  transition: transform .2s, box-shadow .2s, background .2s;
+  letter-spacing: .01em;
 }
 .panel-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, .2);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .22);
   background: white;
 }
 

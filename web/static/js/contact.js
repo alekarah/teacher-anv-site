@@ -1,7 +1,35 @@
 // ═══════════════════════════════════
-// contact.js — форма обратной связи
+// contact.js — модалка и форма
 // ═══════════════════════════════════
 
+const overlay = document.getElementById('modalOverlay');
+const openBtn = document.getElementById('openModal');
+const closeBtn = document.getElementById('modalClose');
+
+function openModal() {
+  overlay.classList.add('is-open');
+  overlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  overlay.classList.remove('is-open');
+  overlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+if (openBtn) openBtn.addEventListener('click', openModal);
+if (closeBtn) closeBtn.addEventListener('click', closeModal);
+if (overlay) {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal();
+  });
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// Форма
 const form = document.getElementById('contactForm');
 if (form) {
   form.addEventListener('submit', async function(e) {

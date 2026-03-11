@@ -28,6 +28,7 @@ func main() {
 		"web/templates/base.html",
 		"web/templates/index.html",
 		"web/templates/partials/nav.html",
+		"web/templates/partials/hero.html",
 		"web/templates/partials/about.html",
 		"web/templates/partials/seasons.html",
 		"web/templates/partials/services.html",

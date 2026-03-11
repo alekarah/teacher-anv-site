@@ -3,10 +3,10 @@
 ═══════════════════════════════════ */
 .rings-section {
   min-height: 100vh;
-  background: linear-gradient(160deg, var(--r7) 0%, var(--r6) 40%, var(--r5) 100%);
+  background: linear-gradient(160deg, var(--r6) 0%, var(--r5) 60%, #e8dcc8 100%);
   position: relative;
   overflow: hidden;
-  padding: 8rem 6vw 5rem;
+  padding: 3rem 6vw 5rem;
   display: flex;
   align-items: center;
 }
@@ -113,8 +113,8 @@
 }
 .ring-diagram {
   position: relative;
-  width: min(480px, 45vw);
-  height: min(480px, 45vw);
+  width: min(600px, 52vw);
+  height: min(600px, 52vw);
 }
 #bigRingSvg {
   width: 100%;

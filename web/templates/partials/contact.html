@@ -2,8 +2,19 @@
 <section class="contact-sec" id="contact">
   <div class="ct-inner">
     <div class="ct-tag">Записаться</div>
-    <h2 class="ct-h">Начнём новый <em>сезон</em> вместе? 🌱</h2>
-    <p class="ct-sub">Оставьте заявку — свяжусь в течение нескольких часов.</p>
+    <h2 class="ct-h">Начнём новый <em>сезон</em> вместе?</h2>
+    <button class="form-btn" id="openModal">Записаться на занятие</button>
+  </div>
+  <img src="/static/img/forest.png" alt="" aria-hidden="true" class="contact-forest">
+</section>
+
+<!-- Модальное окно -->
+<div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Закрыть">&times;</button>
+    <div class="ct-tag">Записаться</div>
+    <h3 class="modal-title" id="modalTitle">Оставьте заявку</h3>
+    <p class="modal-sub">Свяжусь в течение нескольких часов.</p>
     <form class="form" id="contactForm">
       <div class="form-row">
         <div class="field">
@@ -35,8 +46,8 @@
         <label for="f-message">Что хотите улучшить?</label>
         <textarea id="f-message" name="message" placeholder="Расскажите о ситуации..."></textarea>
       </div>
-      <button type="submit" class="form-btn">🌸 Начать новый сезон</button>
+      <button type="submit" class="form-btn">Отправить заявку</button>
     </form>
   </div>
-</section>
+</div>
 {{ end }}

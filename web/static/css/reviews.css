@@ -2,7 +2,7 @@
    REVIEWS
 ═══════════════════════════════════ */
 .reviews-sec {
-  padding: 5rem 6vw;
+  padding: 5rem 6vw 0;
   background: white;
 }
 
@@ -58,17 +58,21 @@
   gap: .7rem;
 }
 .rv-av {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: var(--r5);
-  border: 1.5px solid rgba(160, 104, 56, .2);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .03em;
   flex-shrink: 0;
+  color: white;
 }
+.rv-av--pink  { background: #d47090; }
+.rv-av--green { background: #4a9460; }
+.rv-av--gold  { background: #b07830; }
 .rv-name {
   font-weight: 600;
   font-size: .85rem;

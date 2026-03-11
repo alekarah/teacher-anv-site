@@ -3,7 +3,7 @@
 ═══════════════════════════════════ */
 .services-sec {
   padding: 5rem 6vw;
-  background: #f8f6ff;
+  background: var(--r7);
 }
 
 .sec-tag2 {
@@ -14,14 +14,14 @@
   font-weight: 700;
   letter-spacing: .13em;
   text-transform: uppercase;
-  color: #6b52a8;
+  color: var(--text-soft);
   margin-bottom: .7rem;
 }
 .sec-tag2::before {
   content: '';
   width: 18px;
   height: 1.5px;
-  background: linear-gradient(90deg, #9b85d4, #5cb878);
+  background: var(--bark-mid);
   border-radius: 2px;
 }
 
@@ -35,7 +35,7 @@
 }
 .sec-h2 em {
   font-style: italic;
-  color: #6b52a8;
+  color: var(--bark);
 }
 
 .svc-grid {
@@ -56,17 +56,30 @@
   transform: translateY(-6px);
   box-shadow: 0 14px 36px rgba(0, 0, 0, .12);
 }
-.svc:nth-child(1) { background: linear-gradient(145deg, #ffe0ec, #ffc8d8); }
-.svc:nth-child(2) { background: linear-gradient(145deg, #c8f0d4, #a0e0b0); }
-.svc:nth-child(3) { background: linear-gradient(145deg, #fff0c8, #f8d890); }
-.svc:nth-child(4) { background: linear-gradient(145deg, #d8eeff, #b8d4f8); }
-.svc:nth-child(5) { background: linear-gradient(145deg, #e8d8ff, #d0b8f0); }
-.svc:nth-child(6) { background: linear-gradient(145deg, #d8f8e8, #b0e8c8); }
+.svc:nth-child(1) { background: linear-gradient(145deg, #ffe8f0, #ffd4e0); }
+.svc:nth-child(2) { background: linear-gradient(145deg, #e0f5e8, #c8ecda); }
+.svc:nth-child(3) { background: linear-gradient(145deg, #fff6e0, #ffecc8); }
+.svc:nth-child(4) { background: linear-gradient(145deg, #e8f3ff, #d4e8ff); }
+.svc:nth-child(5) { background: linear-gradient(145deg, #faf3e8, #f0e0c8); }
+.svc:nth-child(6) { background: linear-gradient(145deg, #e8f8f0, #d0f0e0); }
+
+/* Цвет иконки совпадает с акцентом карточки */
+.svc:nth-child(1) .svc-icon svg { color: #b04060; }
+.svc:nth-child(2) .svc-icon svg { color: #2a7a4a; }
+.svc:nth-child(3) .svc-icon svg { color: #a06820; }
+.svc:nth-child(4) .svc-icon svg { color: #2a5090; }
+.svc:nth-child(5) .svc-icon svg { color: var(--bark); }
+.svc:nth-child(6) .svc-icon svg { color: #1a7050; }
 
 .svc-icon {
-  font-size: 2rem;
   display: block;
   margin-bottom: .9rem;
+  width: 32px;
+  height: 32px;
+}
+.svc-icon svg {
+  width: 100%;
+  height: 100%;
 }
 .svc h3 {
   font-family: 'Cormorant Garamond', serif;
@@ -77,7 +90,7 @@
 }
 .svc p {
   font-size: .84rem;
-  color: #5a5a7a;
+  color: var(--text-mid);
   line-height: 1.6;
 }
 .svc-price {

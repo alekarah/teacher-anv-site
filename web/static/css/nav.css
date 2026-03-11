@@ -11,31 +11,46 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 5vw;
-  background: rgba(253, 248, 240, .92);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(122, 78, 40, .12);
+  background: rgba(220, 240, 225, .18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+  transition: background .35s, border-color .35s, box-shadow .35s;
+}
+nav.scrolled {
+  background: rgba(240, 248, 242, .96);
+  border-bottom: 1px solid rgba(46, 122, 64, .12);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, .06);
 }
 
 .nav-logo {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--bark);
+  color: white;
   display: flex;
   align-items: center;
   gap: .5rem;
   text-decoration: none;
+  transition: color .35s;
+}
+nav.scrolled .nav-logo {
+  color: var(--bark);
 }
 
 .nav-ring-mini {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 2.5px solid var(--bark);
+  border: 2.5px solid rgba(255, 255, 255, .8);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: border-color .35s;
+}
+nav.scrolled .nav-ring-mini {
+  border-color: var(--bark);
 }
 .nav-ring-mini::before {
   content: '';
@@ -54,28 +69,44 @@ nav {
   font-size: .82rem;
   font-weight: 500;
   letter-spacing: .07em;
-  color: var(--text-soft);
+  color: rgba(255, 255, 255, .85);
   text-decoration: none;
   transition: color .2s;
 }
 .nav-links a:hover {
+  color: white;
+}
+nav.scrolled .nav-links a {
+  color: var(--text-soft);
+}
+nav.scrolled .nav-links a:hover {
   color: var(--bark);
 }
 
 .nav-cta {
-  background: var(--bark);
-  color: var(--cream);
+  background: rgba(255, 255, 255, .25);
+  color: white;
   font-size: .82rem;
   font-weight: 600;
   padding: .55rem 1.4rem;
   border-radius: 100px;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(122, 78, 40, .3);
-  transition: background .2s, transform .2s;
+  border: 1.5px solid rgba(255, 255, 255, .5);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .1);
+  transition: background .2s, transform .2s, color .35s, border-color .35s, box-shadow .35s;
 }
 .nav-cta:hover {
-  background: var(--bark-mid);
+  background: rgba(255, 255, 255, .4);
   transform: translateY(-2px);
+}
+nav.scrolled .nav-cta {
+  background: var(--bark);
+  color: var(--cream);
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(122, 78, 40, .3);
+}
+nav.scrolled .nav-cta:hover {
+  background: var(--bark-mid);
 }
 
 /* Гамбургер (скрыт на десктопе) */
