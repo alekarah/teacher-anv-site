@@ -6,6 +6,10 @@
 const panels = document.querySelectorAll('[data-season-panel]');
 const snDots  = document.querySelectorAll('.sn-dot');
 
+const seasonThemeMap = ['spring', 'summer', 'autumn', 'winter'];
+const allNavThemes = ['bark', 'teal', 'gold', 'forest', 'spring', 'summer', 'autumn', 'winter'];
+
+// Навигация точками через IntersectionObserver
 panels.forEach((panel, i) => {
   const io = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {

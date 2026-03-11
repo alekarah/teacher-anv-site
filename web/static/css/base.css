@@ -83,3 +83,35 @@ body {
   transform: none;
 }
 
+/* Кнопка «наверх» */
+.back-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 600;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #c8e8d0;
+  color: #1a4a28;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .15);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .3s, transform .3s, background .2s;
+}
+.back-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.back-top:hover {
+  background: #a8d8b8;
+}
+

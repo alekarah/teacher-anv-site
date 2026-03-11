@@ -231,15 +231,15 @@
 
 /* Footer */
 footer {
-  background: #004d1d;
-  padding: 2.2rem 6vw;
+  background: #002e10;
+  padding: 1.2rem 6vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  color: rgba(180, 230, 190, .6);
-  font-size: .82rem;
+  color: rgba(180, 230, 190, .5);
+  font-size: .78rem;
 }
 .footer-logo {
   font-family: 'Cormorant Garamond', serif;

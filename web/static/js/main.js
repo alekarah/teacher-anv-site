@@ -15,11 +15,64 @@ if (cur) {
   });
 }
 
-// Nav: прозрачный над hero, непрозрачный при скролле
+// Nav: цвет меняется по секции
 const navEl = document.querySelector('nav');
 if (navEl) {
-  const heroH = document.getElementById('hero')?.offsetHeight || window.innerHeight;
-  const onScroll = () => navEl.classList.toggle('scrolled', window.scrollY > heroH * 0.85);
+  const allThemes = ['bark', 'teal', 'gold', 'forest', 'spring', 'summer', 'autumn', 'winter'];
+  const seasonThemeMap = ['spring', 'summer', 'autumn', 'winter'];
+
+  function setNavTheme(theme) {
+    navEl.classList.toggle('scrolled', theme !== '');
+    allThemes.forEach(t => navEl.classList.remove('nav-' + t));
+    if (theme) navEl.classList.add('nav-' + theme);
+  }
+
+  // Экспортируем для seasons.js
+  window._setNavTheme = setNavTheme;
+
+  function onScroll() {
+    const scrollY = window.scrollY;
+    const mid = scrollY + 80;
+
+    // Проверяем сезоны — находим какой wrap сейчас занимает верх экрана
+    const seasonWraps = document.querySelectorAll('[data-season-wrap]');
+    if (seasonWraps.length) {
+      const seasonsEl = document.getElementById('seasonsScroll');
+      if (seasonsEl) {
+        const rect = seasonsEl.getBoundingClientRect();
+        if (rect.top < 80 && rect.bottom > 80) {
+          // Находим текущий сезон по позиции оберток
+          for (let i = seasonWraps.length - 1; i >= 0; i--) {
+            const wr = seasonWraps[i].getBoundingClientRect();
+            if (wr.top <= 0) {
+              setNavTheme(seasonThemeMap[i]);
+              return;
+            }
+          }
+          setNavTheme('spring');
+          return;
+        }
+      }
+    }
+
+    // Остальные секции — снизу вверх
+    const sections = [
+      { id: 'contact',  theme: 'forest' },
+      { id: 'reviews',  theme: 'gold'   },
+      { id: 'services', theme: 'teal'   },
+      { id: 'about',    theme: 'bark'   },
+      { id: 'hero',     theme: ''       },
+    ];
+    for (const s of sections) {
+      const el = document.getElementById(s.id);
+      if (el && el.offsetTop <= mid) {
+        setNavTheme(s.theme);
+        return;
+      }
+    }
+    setNavTheme('');
+  }
+
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 }
@@ -31,6 +84,17 @@ if (progFill) {
     const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight) * 100;
     progFill.style.width = pct + '%';
   }, { passive: true });
+}
+
+// Кнопка «наверх»
+const backTop = document.getElementById('backTop');
+if (backTop) {
+  window.addEventListener('scroll', () => {
+    backTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  backTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }
 
 // Scroll reveal

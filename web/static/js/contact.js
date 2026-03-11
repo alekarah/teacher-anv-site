@@ -19,6 +19,20 @@ function closeModal() {
 }
 
 if (openBtn) openBtn.addEventListener('click', openModal);
+
+// Все ссылки с href="#contact" — сначала скролл к секции, потом модалка
+document.querySelectorAll('a[href="#contact"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    const contactEl = document.getElementById('contact');
+    if (contactEl) {
+      contactEl.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(openModal, 600);
+    } else {
+      openModal();
+    }
+  });
+});
 if (closeBtn) closeBtn.addEventListener('click', closeModal);
 if (overlay) {
   overlay.addEventListener('click', function(e) {
