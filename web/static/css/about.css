@@ -8,7 +8,9 @@
   overflow: hidden;
   padding: 3rem 6vw 5rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 .rings-section::before {
   content: '';
@@ -29,6 +31,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
+  flex-shrink: 0;
 }
 
 /* Текстовая часть */
@@ -103,6 +106,30 @@
   font-size: .78rem;
   color: var(--text-soft);
   line-height: 1.5;
+}
+
+/* Фото класса */
+.about-classroom {
+  max-width: 1100px;
+  width: 100%;
+  margin: 2.5rem auto 0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(160,104,56,.15);
+  box-shadow: 0 8px 32px rgba(122,78,40,.13);
+}
+.about-classroom img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+.about-classroom-cap {
+  font-size: .78rem;
+  color: var(--text-soft);
+  text-align: center;
+  padding: .6rem;
+  background: rgba(255,255,255,.75);
 }
 
 /* Диаграмма колец */

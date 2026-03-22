@@ -30,6 +30,7 @@ func main() {
 		"web/templates/partials/nav.html",
 		"web/templates/partials/hero.html",
 		"web/templates/partials/about.html",
+		"web/templates/partials/credentials.html",
 		"web/templates/partials/seasons.html",
 		"web/templates/partials/services.html",
 		"web/templates/partials/reviews.html",
