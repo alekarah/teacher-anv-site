@@ -152,3 +152,214 @@ if (rings.length && info && hlRing && diagram) {
     info.style.top  = t + 'px';
   }
 }
+
+// Лайтбокс с зумом
+(function() {
+  const lb       = document.getElementById('lightbox');
+  const viewport = document.getElementById('lightboxViewport');
+  const lbImg    = document.getElementById('lightboxImg');
+  const lbClose  = document.getElementById('lightboxClose');
+  const hint     = document.getElementById('lightboxHint');
+  const btnIn    = document.getElementById('lightboxZoomIn');
+  const btnOut   = document.getElementById('lightboxZoomOut');
+  if (!lb) return;
+
+  let scale = 1, fitScale = 1, ox = 0, oy = 0;
+  let dragging = false, startX = 0, startY = 0, startOx = 0, startOy = 0;
+
+  // Вычисляем fitScale: картинка вписывается в viewport
+  function calcFitScale() {
+    const iw = lbImg.naturalWidth;
+    const ih = lbImg.naturalHeight;
+    if (!iw || !ih) return 1;
+    const vw = viewport.offsetWidth;
+    const vh = viewport.offsetHeight;
+    return Math.min(vw / iw, vh / ih);
+  }
+
+  // transform-origin: 0 0, поэтому при fit центрируем через ox/oy
+  function fitOffset() {
+    const iw = lbImg.naturalWidth;
+    const ih = lbImg.naturalHeight;
+    const vw = viewport.offsetWidth;
+    const vh = viewport.offsetHeight;
+    ox = (vw - iw * fitScale) / 2;
+    oy = (vh - ih * fitScale) / 2;
+  }
+
+  function applyTransform(animate) {
+    lbImg.style.transition = animate ? 'transform .2s ease-out' : 'none';
+    lbImg.style.transform = `translate(${ox}px,${oy}px) scale(${scale})`;
+  }
+
+  function clampOffset() {
+    const iw = lbImg.naturalWidth;
+    const ih = lbImg.naturalHeight;
+    const vw = viewport.offsetWidth;
+    const vh = viewport.offsetHeight;
+    const sw = iw * scale, sh = ih * scale;
+    // transform-origin: 0 0, поэтому диапазон смещений:
+    // если картинка меньше viewport — центрируем (одно значение)
+    // если больше — можно двигать от 0 до (vw - sw)
+    const minX = sw > vw ? vw - sw : (vw - sw) / 2;
+    const maxX = sw > vw ? 0       : (vw - sw) / 2;
+    const minY = sh > vh ? vh - sh : (vh - sh) / 2;
+    const maxY = sh > vh ? 0       : (vh - sh) / 2;
+    ox = Math.max(minX, Math.min(maxX, ox));
+    oy = Math.max(minY, Math.min(maxY, oy));
+  }
+
+  function resetZoom(animate) {
+    scale = fitScale;
+    fitOffset();
+    applyTransform(animate);
+  }
+
+  function zoomBy(delta, cx, cy) {
+    const prev = scale;
+    // минимум = fitScale (вписан), максимум = 1 (натуральный 1:1)
+    const newScale = Math.max(fitScale, Math.min(1, scale + delta * fitScale));
+    if (newScale === prev) return;
+    const ratio = newScale / prev;
+    // точка под курсором (относительно левого верхнего угла viewport)
+    const pivotX = cx !== undefined ? cx : viewport.offsetWidth  / 2;
+    const pivotY = cy !== undefined ? cy : viewport.offsetHeight / 2;
+    ox = pivotX - (pivotX - ox) * ratio;
+    oy = pivotY - (pivotY - oy) * ratio;
+    scale = newScale;
+    clampOffset();
+    applyTransform(false);
+  }
+
+  // показать подсказку при открытии, скрыть через 3с
+  let hintTimer;
+  function showHint() {
+    hint.classList.remove('hidden');
+    clearTimeout(hintTimer);
+    hintTimer = setTimeout(() => hint.classList.add('hidden'), 3000);
+  }
+
+  function initFit() {
+    fitScale = calcFitScale();
+    scale = fitScale;
+    fitOffset();
+    applyTransform(false);
+  }
+
+  // Открыть
+  document.addEventListener('click', e => {
+    const img = e.target.closest('[data-lightbox]');
+    if (!img || img.tagName !== 'IMG') return;
+    lbImg.src = img.dataset.lightboxSrc || img.src;
+    lbImg.alt = img.alt;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // если картинка уже загружена (кэш) — сразу, иначе ждём onload
+    if (lbImg.complete && lbImg.naturalWidth) {
+      initFit();
+    } else {
+      lbImg.onload = () => { initFit(); lbImg.onload = null; };
+    }
+    showHint();
+  });
+
+  // Закрыть
+  function close() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    resetZoom(false);
+  }
+  lbClose.addEventListener('click', close);
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  // Кнопки +/−
+  btnIn.addEventListener('click',  () => zoomBy(+1));
+  btnOut.addEventListener('click', () => zoomBy(-1));
+
+  // Колёсико
+  viewport.addEventListener('wheel', e => {
+    e.preventDefault();
+    const rect = viewport.getBoundingClientRect();
+    const cx = e.clientX - rect.left;
+    const cy = e.clientY - rect.top;
+    zoomBy(e.deltaY < 0 ? +1 : -1, cx, cy);
+  }, { passive: false });
+
+  // Двойной клик — сброс
+  viewport.addEventListener('dblclick', () => resetZoom(true));
+
+  // Перетаскивание мышью
+  viewport.addEventListener('mousedown', e => {
+    if (e.button !== 0) return;
+    dragging = true;
+    startX = e.clientX; startY = e.clientY;
+    startOx = ox; startOy = oy;
+    viewport.classList.add('dragging');
+    e.preventDefault();
+  });
+  window.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    ox = startOx + (e.clientX - startX);
+    oy = startOy + (e.clientY - startY);
+    clampOffset();
+    applyTransform(false);
+  });
+  window.addEventListener('mouseup', () => {
+    dragging = false;
+    viewport.classList.remove('dragging');
+  });
+
+  // Touch pinch & pan
+  let touches = [], initDist = 0, initScale = 1, initMx = 0, initMy = 0, initOx = 0, initOy = 0;
+  viewport.addEventListener('touchstart', e => {
+    touches = Array.from(e.touches);
+    if (touches.length === 2) {
+      initDist  = Math.hypot(touches[1].clientX - touches[0].clientX, touches[1].clientY - touches[0].clientY);
+      initScale = scale;
+      initMx = (touches[0].clientX + touches[1].clientX) / 2 - viewport.getBoundingClientRect().left - viewport.offsetWidth  / 2;
+      initMy = (touches[0].clientY + touches[1].clientY) / 2 - viewport.getBoundingClientRect().top  - viewport.offsetHeight / 2;
+      initOx = ox; initOy = oy;
+    } else if (touches.length === 1) {
+      startX = touches[0].clientX; startY = touches[0].clientY;
+      startOx = ox; startOy = oy;
+    }
+    e.preventDefault();
+  }, { passive: false });
+  viewport.addEventListener('touchmove', e => {
+    touches = Array.from(e.touches);
+    if (touches.length === 2) {
+      const dist = Math.hypot(touches[1].clientX - touches[0].clientX, touches[1].clientY - touches[0].clientY);
+      scale = Math.max(MIN, Math.min(MAX, initScale * dist / initDist));
+      ox = initMx - (initMx - initOx) * (scale / initScale);
+      oy = initMy - (initMy - initOy) * (scale / initScale);
+      clampOffset();
+      applyTransform(false);
+    } else if (touches.length === 1) {
+      ox = startOx + (touches[0].clientX - startX);
+      oy = startOy + (touches[0].clientY - startY);
+      clampOffset();
+      applyTransform(false);
+    }
+    e.preventDefault();
+  }, { passive: false });
+  viewport.addEventListener('touchend', e => {
+    touches = Array.from(e.touches);
+    if (scale < MIN + 0.05) resetZoom(true);
+  });
+})();
+
+// Карусель фото кабинета
+(function() {
+  const slides = document.querySelectorAll('#classroomCarousel .carousel-slide');
+  const cap = document.getElementById('classroomCap');
+  if (!slides.length) return;
+  const captions = ['Мой кабинет · 1 сентября', 'Мой кабинет · 2 сентября'];
+  let current = 0;
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+    if (cap) cap.textContent = captions[current];
+  }, 4000);
+})();

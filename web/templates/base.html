@@ -26,6 +26,18 @@
 
 {{ template "content" . }}
 
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">×</button>
+  <div class="lightbox-viewport" id="lightboxViewport">
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  </div>
+  <div class="lightbox-zoom-hint" id="lightboxHint">колёсико мыши — zoom · двойной клик — сброс</div>
+  <div class="lightbox-zoom-btns">
+    <button id="lightboxZoomOut" title="Уменьшить">−</button>
+    <button id="lightboxZoomIn" title="Увеличить">+</button>
+  </div>
+</div>
+
 <script src="/static/js/main.js"></script>
 <script src="/static/js/seasons.js"></script>
 <script src="/static/js/contact.js"></script>
