@@ -18,7 +18,7 @@ if (cur) {
 // Nav: цвет меняется по секции
 const navEl = document.querySelector('nav');
 if (navEl) {
-  const allThemes = ['bark', 'teal', 'gold', 'forest', 'spring', 'summer', 'autumn', 'winter'];
+  const allThemes = ['bark', 'teal', 'gold', 'forest', 'cta-sec', 'spring', 'summer', 'autumn', 'winter'];
   const seasonThemeMap = ['spring', 'summer', 'autumn', 'winter'];
 
   function setNavTheme(theme) {
@@ -57,7 +57,7 @@ if (navEl) {
 
     // Остальные секции — снизу вверх
     const sections = [
-      { id: 'contact',  theme: 'forest' },
+      { id: 'contact',  theme: 'cta-sec' },
       { id: 'reviews',  theme: 'gold'   },
       { id: 'services', theme: 'teal'   },
       { id: 'about',    theme: 'bark'   },

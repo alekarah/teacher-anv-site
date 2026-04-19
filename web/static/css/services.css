@@ -3,7 +3,8 @@
 ═══════════════════════════════════ */
 .services-sec {
   padding: 5rem 6vw;
-  background: var(--r7);
+  background: #FAF6F0;
+  padding-bottom: 0;
 }
 
 .sec-tag2 {
@@ -56,12 +57,12 @@
   transform: translateY(-6px);
   box-shadow: 0 14px 36px rgba(0, 0, 0, .12);
 }
-.svc:nth-child(1) { background: linear-gradient(145deg, #ffe8f0, #ffd4e0); }
-.svc:nth-child(2) { background: linear-gradient(145deg, #e0f5e8, #c8ecda); }
-.svc:nth-child(3) { background: linear-gradient(145deg, #fff6e0, #ffecc8); }
-.svc:nth-child(4) { background: linear-gradient(145deg, #e8f3ff, #d4e8ff); }
-.svc:nth-child(5) { background: linear-gradient(145deg, #faf3e8, #f0e0c8); }
-.svc:nth-child(6) { background: linear-gradient(145deg, #e8f8f0, #d0f0e0); }
+.svc:nth-child(1) { background: linear-gradient(145deg, #ffd0e4, #ffb8d0); }
+.svc:nth-child(2) { background: linear-gradient(145deg, #c8eedd, #a8e2c8); }
+.svc:nth-child(3) { background: linear-gradient(145deg, #ffd8b0, #ffbe80); }
+.svc:nth-child(4) { background: linear-gradient(145deg, #cce4ff, #b0d4ff); }
+.svc:nth-child(5) { background: linear-gradient(145deg, #e0d4ff, #ccc0f0); }
+.svc:nth-child(6) { background: linear-gradient(145deg, #f0f0b0, #e4e490); }
 
 /* Цвет иконки совпадает с акцентом карточки */
 .svc:nth-child(1) .svc-icon svg { color: #b04060; }

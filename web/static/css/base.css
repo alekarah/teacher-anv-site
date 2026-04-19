@@ -92,15 +92,17 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: none;
-  background: #c8e8d0;
-  color: #1a4a28;
+  border: 1.5px solid rgba(255, 255, 255, .4);
+  background: rgba(30, 100, 50, .45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, .9);
   font-size: 1.1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, .15);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .12);
   opacity: 0;
   pointer-events: none;
   transform: translateY(10px);
@@ -112,7 +114,8 @@ body {
   transform: translateY(0);
 }
 .back-top:hover {
-  background: #a8d8b8;
+  background: rgba(30, 100, 50, .7);
+  border-color: rgba(255, 255, 255, .6);
 }
 
 /* Лайтбокс */

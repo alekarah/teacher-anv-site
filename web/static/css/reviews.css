@@ -2,8 +2,19 @@
    REVIEWS
 ═══════════════════════════════════ */
 .reviews-sec {
-  padding: 5rem 6vw 0;
-  background: white;
+  padding: 5rem 6vw 4rem;
+  background: #FAF6F0;
+  position: relative;
+}
+.reviews-sec::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, rgba(40, 18, 8, .3));
+  pointer-events: none;
 }
 
 .rv-grid {
@@ -14,7 +25,7 @@
 }
 
 .rv-card {
-  background: var(--r7);
+  background: white;
   border-radius: 22px;
   padding: 1.8rem;
   border: 1px solid rgba(160, 104, 56, .15);

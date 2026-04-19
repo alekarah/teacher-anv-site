@@ -2,29 +2,29 @@
    CONTACT + FOOTER
 ═══════════════════════════════════ */
 .contact-sec {
-  padding: 5rem 0 0;
-  background: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
-}
-
-.contact-forest {
-  display: block;
-  width: 100%;
-  height: auto;
-  position: relative;
-  z-index: 1;
-  vertical-align: bottom;
+  background: url('/static/img/cta.png') center center / cover no-repeat;
+  background-attachment: fixed;
 }
 
 .ct-inner {
   text-align: center;
-  padding: 0 6vw;
-  position: absolute;
-  bottom: 550px;
-  left: 0;
-  right: 0;
+  padding: 2.5rem 3rem;
+  position: relative;
   z-index: 2;
+  background: rgba(255, 255, 255, .55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, .7);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .12);
+  max-width: 540px;
+  width: 90%;
 }
 
 .ct-tag {
@@ -35,7 +35,7 @@
   font-weight: 700;
   letter-spacing: .13em;
   text-transform: uppercase;
-  color: #3a7a4a;
+  color: #1a3a22;
   margin-bottom: .7rem;
   justify-content: center;
 }
@@ -43,7 +43,7 @@
   content: '';
   width: 18px;
   height: 1.5px;
-  background: #3a7a4a;
+  background: #2e7a40;
   border-radius: 2px;
 }
 
@@ -51,13 +51,17 @@
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   font-weight: 700;
-  color: var(--text);
+  color: #0d2414;
   margin-bottom: 1.8rem;
   line-height: 1.2;
 }
 .ct-h em {
   font-style: italic;
-  color: #2a6e3a;
+  color: #1a5a28;
+}
+
+.ct-form-btn {
+  margin-top: .5rem;
 }
 
 /* Форма (внутри модалки) */
@@ -146,8 +150,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, .45);
-  backdrop-filter: blur(4px);
+  background: url('/static/img/cta.png') center center / cover no-repeat;
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -155,96 +158,115 @@
   padding: 1rem;
   opacity: 0;
   pointer-events: none;
-  transition: opacity .25s;
+  transition: opacity .3s;
+}
+.modal-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 30, 12, .45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 .modal-overlay.is-open {
   opacity: 1;
   pointer-events: all;
 }
 .modal {
-  background: #f7fdf8;
+  background: rgba(255, 255, 255, .6);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, .75);
   border-radius: 24px;
   padding: 2.5rem;
   max-width: 560px;
   width: 100%;
   position: relative;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, .25);
-  transform: translateY(20px);
-  transition: transform .25s;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .2);
+  transform: translateY(20px) scale(.98);
+  transition: transform .3s cubic-bezier(.34,1.56,.64,1);
   max-height: 90vh;
   overflow-y: auto;
-  border-top: 4px solid #2e7a40;
+  z-index: 1;
 }
 .modal-overlay.is-open .modal {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 .modal-close {
   position: absolute;
   top: 1.2rem;
   right: 1.2rem;
-  background: none;
-  border: none;
-  font-size: 1.6rem;
+  background: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.8);
+  font-size: 1.4rem;
   line-height: 1;
-  color: #5a5a5a;
+  color: #1a3a22;
   cursor: pointer;
-  padding: .2rem .5rem;
-  border-radius: 8px;
+  padding: .25rem .6rem;
+  border-radius: 10px;
   transition: background .15s, color .15s;
 }
 .modal-close:hover {
-  background: #e8f4ec;
-  color: #2e7a40;
+  background: rgba(255,255,255,.85);
+  color: #0d2414;
 }
 .modal-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2rem;
   font-weight: 700;
-  color: #1a3a22;
+  color: #0d2414;
   margin-bottom: .4rem;
 }
 .modal-sub {
-  color: #4a6a52;
+  color: #2a4a32;
   font-size: .9rem;
   margin-bottom: 1.5rem;
 }
 .modal .ct-tag {
-  color: #2e7a40;
+  color: #1a3a22;
 }
 .modal .ct-tag::before {
   background: #2e7a40;
 }
 .modal .field label {
-  color: #2a5a35;
+  color: #1a3a22;
   font-weight: 700;
 }
 .modal .field input,
 .modal .field textarea,
 .modal .field select {
-  border-color: #9ecfaa;
-  color: #1a2e1e;
+  background: rgba(255,255,255,.7);
+  border-color: rgba(255,255,255,.9);
+  color: #0d2414;
 }
 .modal .field input::placeholder,
 .modal .field textarea::placeholder {
-  color: #7aaa88;
+  color: #6a9a74;
+}
+.modal .field input:focus,
+.modal .field textarea:focus,
+.modal .field select:focus {
+  background: rgba(255,255,255,.9);
+  border-color: #4a9a5a;
+  box-shadow: 0 0 0 3px rgba(74,154,90,.15);
 }
 
 /* Footer */
 footer {
-  background: #002e10;
-  padding: 1.2rem 6vw;
+  background: #0D3D1A;
+  padding: .9rem 6vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
-  color: rgba(180, 230, 190, .5);
-  font-size: .78rem;
+  gap: .75rem;
+  color: rgba(220, 245, 225, .7);
+  font-size: .76rem;
 }
 .footer-logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  color: #a8d8b0;
+  font-size: 1rem;
+  color: rgba(220, 245, 225, .95);
   font-weight: 600;
 }
 .footer-links {
@@ -252,10 +274,10 @@ footer {
   gap: 1.5rem;
 }
 .footer-links a {
-  color: rgba(168, 216, 176, .7);
+  color: rgba(220, 245, 225, .7);
   text-decoration: none;
   transition: color .2s;
 }
 .footer-links a:hover {
-  color: #c8f0d0;
+  color: rgba(220, 245, 225, 1);
 }
