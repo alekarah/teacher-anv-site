@@ -100,3 +100,15 @@
   font-size: .88rem;
   color: rgba(0, 0, 0, .5);
 }
+.svc-note-inline {
+  font-size: .74rem;
+  color: var(--text-soft);
+  margin-top: .4rem;
+  line-height: 1.4;
+}
+.svc-note {
+  text-align: center;
+  font-size: .78rem;
+  color: var(--text-soft);
+  margin-top: 1.5rem;
+}

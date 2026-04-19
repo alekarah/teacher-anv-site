@@ -7,7 +7,7 @@
   <title>{{ .Title }}</title>
   <meta name="description" content="{{ .Description }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/css/base.css">
   <link rel="stylesheet" href="/static/css/hero.css">
   <link rel="stylesheet" href="/static/css/nav.css">
@@ -21,7 +21,6 @@
 </head>
 <body>
 
-<div class="cur" id="cur"></div>
 <div class="prog"><div class="prog-fill" id="prog"></div></div>
 
 {{ template "content" . }}
@@ -31,7 +30,7 @@
   <div class="lightbox-viewport" id="lightboxViewport">
     <img class="lightbox-img" id="lightboxImg" src="" alt="">
   </div>
-  <div class="lightbox-zoom-hint" id="lightboxHint">колёсико мыши — zoom · двойной клик — сброс</div>
+  <div class="lightbox-zoom-hint" id="lightboxHint"></div>
   <div class="lightbox-zoom-btns">
     <button id="lightboxZoomOut" title="Уменьшить">−</button>
     <button id="lightboxZoomIn" title="Увеличить">+</button>

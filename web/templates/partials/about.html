@@ -3,32 +3,10 @@
   <div class="rings-inner">
 
     <div class="about-text reveal">
-      <div class="sec-tag">🪵 Годовые кольца · Обо мне</div>
+      <div class="sec-tag">Годовые кольца · Обо мне</div>
       <h2 class="about-h">Каждый год —<br><em>новое кольцо</em> опыта</h2>
-      <p class="about-p">Меня зовут {{ .TeacherName }}. Я учитель начальных классов с дипломом с отличием и 14-летним опытом работы в школе. Как у дерева сердцевина — основа всего, так и в моей работе основа — любовь к детям и профессии.</p>
-      <p class="about-p">Работала в школах Чукотки и Подмосковья. В 2020 году при наборе первого класса из 130 заявлений больше половины родителей попросили именно мой класс. Наведи на кольцо, чтобы узнать больше →</p>
-      <div class="wood-facts">
-        <div class="wf">
-          <div class="wf-icon">🎓</div>
-          <div class="wf-title">Образование</div>
-          <div class="wf-text">Диплом с отличием, специальность — начальные классы</div>
-        </div>
-        <div class="wf">
-          <div class="wf-icon">📚</div>
-          <div class="wf-title">Программы</div>
-          <div class="wf-text">Занков, Школа России, Перспектива</div>
-        </div>
-        <div class="wf">
-          <div class="wf-icon">🎮</div>
-          <div class="wf-title">Методика</div>
-          <div class="wf-text">Уроки-игры, проекты, эксперименты — учёба через интерес</div>
-        </div>
-        <div class="wf">
-          <div class="wf-icon">💬</div>
-          <div class="wf-title">Связь</div>
-          <div class="wf-text">Отчёт родителям после каждого занятия</div>
-        </div>
-      </div>
+      <p class="about-p">Меня зовут {{ .TeacherName }}. Я учитель начальных классов с 14-летним стажем. Как у дерева сердцевина — основа всего, так и в моей работе основа — любовь к детям и профессии.</p>
+      <p class="about-p">Работала в школах Чукотки и Подмосковья. В 2020 году при наборе первого класса из 130 заявлений больше половины родителей попросили именно мой класс. <span class="hint-desktop">Наведи на кольцо</span><span class="hint-mobile">Нажми на кольцо</span>, чтобы узнать больше →</p>
     </div>
 
     <div class="ring-diagram-wrap reveal" style="transition-delay:.15s">
@@ -73,10 +51,33 @@
           <circle cx="240" cy="240" r="236" fill="none" stroke="#7a4e28" stroke-width="14" opacity=".3"/>
         </svg>
         <div class="ring-info" id="ringInfo">
-          <span class="ri-icon" id="riIcon">🌱</span>
-          <div class="ri-title" id="riTitle">Кольцо</div>
-          <div class="ri-desc"  id="riDesc">Наведи на кольцо</div>
+          <span class="ri-icon" id="riIcon">🫧</span>
+          <div class="ri-title" id="riTitle">Годовые кольца</div>
+          <div class="ri-desc" id="riDesc" data-hint-desktop="Наведи на кольцо" data-hint-mobile="Нажми на кольцо"></div>
         </div>
+      </div>
+    </div>
+
+    <div class="wood-facts reveal" style="transition-delay:.2s">
+      <div class="wf">
+        <div class="wf-icon">🎓</div>
+        <div class="wf-title">Образование</div>
+        <div class="wf-text">Диплом с отличием, специальность — начальные классы</div>
+      </div>
+      <div class="wf">
+        <div class="wf-icon">📚</div>
+        <div class="wf-title">Программы</div>
+        <div class="wf-text">Занков, Школа России, Перспектива — работаю по любой</div>
+      </div>
+      <div class="wf">
+        <div class="wf-icon">🤝</div>
+        <div class="wf-title">Подход</div>
+        <div class="wf-text">Индивидуальный подход, работаю также с детьми с ОВЗ</div>
+      </div>
+      <div class="wf">
+        <div class="wf-icon">💬</div>
+        <div class="wf-title">Связь</div>
+        <div class="wf-text">Отчёт родителям после каждого занятия</div>
       </div>
     </div>
 

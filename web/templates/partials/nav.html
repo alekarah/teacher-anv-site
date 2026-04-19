@@ -1,8 +1,8 @@
 {{ define "nav" }}
 <nav>
   <a href="/" class="nav-logo">Агарёва Н.&thinsp;В.</a>
-  <ul class="nav-links">
-    <li><a href="#about">Обо мне</a></li>
+  <ul class="nav-links" id="navLinks">
+<li><a href="#about">Обо мне</a></li>
     <li><a href="#seasonsScroll">Сезоны</a></li>
     <li><a href="#services">Занятия</a></li>
     <li><a href="#reviews">Отзывы</a></li>
@@ -13,4 +13,5 @@
   </div>
   <a href="#contact" class="nav-cta">Записаться →</a>
 </nav>
+<div class="nav-overlay" id="navOverlay"></div>
 {{ end }}

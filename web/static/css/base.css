@@ -29,31 +29,12 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Nunito', sans-serif;
   background: var(--cream);
   color: var(--text);
   overflow-x: hidden;
-  cursor: none;
 }
 
-/* Кастомный курсор */
-.cur {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--bark);
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  mix-blend-mode: multiply;
-  transition: width .15s, height .15s;
-}
-.cur.h {
-  width: 28px;
-  height: 28px;
-  opacity: .35;
-}
 
 /* Прогресс-бар */
 .prog {
@@ -81,6 +62,7 @@ body {
 .reveal.visible {
   opacity: 1;
   transform: none;
+  transition-delay: 0s;
 }
 
 /* Кнопка «наверх» */

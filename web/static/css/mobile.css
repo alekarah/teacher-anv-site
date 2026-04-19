@@ -1,27 +1,174 @@
 /* ═══════════════════════════════════
    MOBILE — медиазапросы
-   (детальная адаптация — Шаг 5)
 ═══════════════════════════════════ */
+
+/* ── Планшет 900px ── */
 @media (max-width: 900px) {
+
+  /* Nav */
   nav { padding: 1rem 4vw; }
-  .nav-links { display: none; }
   .nav-burger { display: flex; }
+  .nav-cta { display: none; }
 
-  .rings-inner { grid-template-columns: 1fr; }
-  .ring-diagram { width: min(320px, 80vw); height: min(320px, 80vw); }
+  /* Overlay за drawer */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    z-index: 585;
+  }
+  .nav-overlay.nav-overlay-open { display: block; }
 
-  .panel-inner { grid-template-columns: 1fr; padding: 7rem 4vw 4rem; text-align: center; }
-  .panel-desc  { margin: 0 auto 1.5rem; }
-  .panel-art   { display: none; }
-  .info-cards  { justify-content: center; }
+  /* Drawer активируется JS-классом nav-drawer-ready */
 
-  .svc-grid, .rv-grid { grid-template-columns: 1fr 1fr; }
-  .form-row { grid-template-columns: 1fr; }
+  /* Гамбургер */
+  .nav-burger { z-index: 596; }
+
+  /* Hero */
+  .hero-sec {
+    grid-template-columns: 1fr;
+    padding: 6rem 5vw 3rem;
+    background-attachment: scroll;
+    text-align: center;
+  }
+  .hero-inner { padding: 2rem 1.5rem; }
+  .hero-tag { justify-content: center; }
+  .hero-actions { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-btn-secondary { display: none; }
+
+  .hero-decor {
+    display: flex;
+    justify-content: center;
+    order: -1;
+    margin-bottom: 1rem;
+  }
+  .hero-photo-placeholder {
+    width: min(260px, 70vw);
+    height: min(300px, 80vw);
+    margin-right: 0;
+  }
+  .hero-rings-svg { width: min(300px, 75vw); height: min(300px, 75vw); }
+
+  /* About */
+  .rings-inner {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+    gap: 1.5rem;
+  }
+  .about-text        { grid-column: 1 !important; grid-row: 1 !important; }
+  .ring-diagram-wrap { grid-column: 1 !important; grid-row: 2 !important; }
+  .wood-facts        { grid-column: 1 !important; grid-row: 3 !important; }
+  .ring-diagram {
+    width: min(420px, 98vw);
+    height: min(420px, 98vw);
+    margin: 0 auto;
+  }
+  /* Статичный блок над кольцом — скрываем */
+  .ring-diagram-wrap > .ring-info { display: none !important; }
+
+  /* Tooltip поверх кольца, по центру */
+  .ring-diagram {
+    position: relative;
+  }
+  .ring-diagram .ring-info {
+    display: block;
+    position: absolute !important;
+    top: 5% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    max-width: 200px;
+    text-align: center;
+    pointer-events: none;
+  }
+  #riDesc:empty::after {
+    content: attr(data-hint-mobile);
+  }
+  .hint-desktop { display: none; }
+  .hint-mobile { display: inline; }
+  .about-info { grid-template-columns: 1fr 1fr; }
+  #bigRingSvg text { display: none; }
+
+  /* Credentials */
+  .creds-grid { grid-template-columns: 1fr; }
+
+  /* Seasons */
+  [data-season-wrap] {
+    height: auto !important;
+  }
+  .season-panel {
+    position: relative;
+    height: auto;
+    min-height: 0;
+  }
+  .panel-inner {
+    grid-template-columns: 1fr;
+    padding: 4rem 5vw 4rem;
+    text-align: center;
+    gap: 1.5rem;
+    height: auto;
+    align-items: start;
+  }
+  .panel-art {
+    display: flex;
+    justify-content: center;
+    order: -1;
+  }
+  .panel-art img { width: min(220px, 58vw); height: min(220px, 58vw); }
+  .panel-desc { margin: 0 auto .8rem; font-size: .92rem; }
+  .info-cards { justify-content: center; gap: .45rem; margin-bottom: 1rem; }
+  .info-card { padding: .45rem .75rem; font-size: .76rem; }
+
   .season-nav { display: none; }
-  footer { flex-direction: column; text-align: center; }
+
+  /* Services */
+  .svc-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Reviews */
+  .rv-grid { grid-template-columns: 1fr; }
+
+  /* Contact */
+  .ct-inner { padding: 2rem 1.5rem; }
+  .ct-h { font-size: clamp(1.6rem, 5vw, 2.2rem); }
+  .contact-sec { background-attachment: scroll; }
+
+  /* Modal */
+  .form-row { grid-template-columns: 1fr; }
+  .modal { padding: 2rem 1.5rem; }
+  .modal-overlay { background-attachment: scroll; }
+
+  /* Footer */
+  footer { flex-direction: column; text-align: center; gap: .5rem; }
+  .footer-links { justify-content: center; }
 }
 
+/* ── Мобилка 600px ── */
 @media (max-width: 600px) {
-  .svc-grid, .rv-grid { grid-template-columns: 1fr; }
-  .wood-facts { grid-template-columns: 1fr; }
+
+  /* Hero */
+  .hero-h { font-size: clamp(2rem, 8vw, 3rem); }
+  .hero-sub { font-size: .95rem; }
+  .hero-photo-placeholder {
+    width: min(200px, 60vw);
+    height: min(240px, 72vw);
+  }
+
+  /* About */
+  .about-info { grid-template-columns: 1fr; }
+  .ring-diagram { width: min(240px, 85vw); height: min(240px, 85vw); }
+
+  /* Seasons */
+  .panel-art img { width: min(160px, 50vw); height: min(160px, 50vw); }
+  .panel-h { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+
+  /* Services */
+  .svc-grid { grid-template-columns: 1fr; }
+
+  /* Credentials */
+  .creds-img { width: min(280px, 85vw); }
+
+  /* Contact */
+  .ct-inner { width: 95%; }
 }

@@ -2,18 +2,6 @@
 // main.js — инициализация, общие утилиты
 // ═══════════════════════════════════
 
-// Кастомный курсор
-const cur = document.getElementById('cur');
-if (cur) {
-  document.addEventListener('mousemove', e => {
-    cur.style.left = e.clientX + 'px';
-    cur.style.top  = e.clientY + 'px';
-  });
-  document.querySelectorAll('a, button, .i-ring, .svc, .rv-card, .wf, .info-card').forEach(el => {
-    el.addEventListener('mouseenter', () => cur.classList.add('h'));
-    el.addEventListener('mouseleave', () => cur.classList.remove('h'));
-  });
-}
 
 // Nav: цвет меняется по секции
 const navEl = document.querySelector('nav');
@@ -77,6 +65,30 @@ if (navEl) {
   onScroll();
 }
 
+// Гамбургер-меню
+const burger = document.getElementById('navBurger');
+const navLinks = document.getElementById('navLinks');
+const navOverlay = document.getElementById('navOverlay');
+
+function closeMenu() {
+  navLinks.classList.remove('nav-open');
+  burger.classList.remove('is-open');
+  navOverlay.classList.remove('nav-overlay-open');
+  document.body.style.overflow = '';
+}
+
+if (burger && navLinks) {
+  burger.addEventListener('click', () => {
+    const open = !navLinks.classList.contains('nav-open');
+    navLinks.classList.toggle('nav-open', open);
+    burger.classList.toggle('is-open', open);
+    navOverlay.classList.toggle('nav-overlay-open', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  navOverlay.addEventListener('click', closeMenu);
+}
+
 // Прогресс-бар при скролле
 const progFill = document.getElementById('prog');
 if (progFill) {
@@ -121,18 +133,27 @@ const hlRing  = document.getElementById('hlRing');
 const diagram = document.getElementById('ringDiagram');
 
 if (rings.length && info && hlRing && diagram) {
+  const riDesc = document.getElementById('riDesc');
+
+  function showRingInfo(idx) {
+    const d = ringData[idx];
+    document.getElementById('riIcon').textContent  = d.icon;
+    document.getElementById('riTitle').textContent = d.title;
+    riDesc.textContent = d.desc;
+    info.classList.add('show');
+    hlRing.setAttribute('r', radii[idx]);
+    hlRing.style.opacity = '1';
+  }
+
   rings.forEach(ring => {
     ring.addEventListener('mouseenter', function(e) {
-      const idx = +this.dataset.ring;
-      const d = ringData[idx];
-      document.getElementById('riIcon').textContent  = d.icon;
-      document.getElementById('riTitle').textContent = d.title;
-      document.getElementById('riDesc').textContent  = d.desc;
-      info.classList.add('show');
-      hlRing.setAttribute('r', radii[idx]);
-      hlRing.style.opacity = '1';
+      showRingInfo(+this.dataset.ring);
       this.style.filter = 'brightness(1.07)';
       posInfo(e);
+    });
+    ring.addEventListener('click', function(e) {
+      e.stopPropagation();
+      showRingInfo(+this.dataset.ring);
     });
     ring.addEventListener('mousemove', posInfo);
     ring.addEventListener('mouseleave', function() {
@@ -140,6 +161,15 @@ if (rings.length && info && hlRing && diagram) {
       hlRing.style.opacity = '0';
       this.style.filter = '';
     });
+  });
+
+  // Закрытие при тапе вне кольца
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.i-ring')) {
+      info.classList.remove('show');
+      hlRing.style.opacity = '0';
+      riDesc.textContent = '';
+    }
   });
 
   function posInfo(e) {
@@ -231,7 +261,11 @@ if (rings.length && info && hlRing && diagram) {
     applyTransform(false);
   }
 
-  // показать подсказку при открытии, скрыть через 3с
+  const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  hint.textContent = isTouch
+    ? 'щипок — zoom · двойной тап — сброс'
+    : 'колёсико мыши — zoom · двойной клик — сброс';
+
   let hintTimer;
   function showHint() {
     hint.classList.remove('hidden');
@@ -286,8 +320,9 @@ if (rings.length && info && hlRing && diagram) {
     zoomBy(e.deltaY < 0 ? +1 : -1, cx, cy);
   }, { passive: false });
 
-  // Двойной клик — сброс
+  // Двойной клик — сброс (десктоп)
   viewport.addEventListener('dblclick', () => resetZoom(true));
+  let lastTap = 0;
 
   // Перетаскивание мышью
   viewport.addEventListener('mousedown', e => {
@@ -346,6 +381,12 @@ if (rings.length && info && hlRing && diagram) {
   viewport.addEventListener('touchend', e => {
     touches = Array.from(e.touches);
     if (scale < MIN + 0.05) resetZoom(true);
+    // двойной тап — сброс
+    if (e.touches.length === 0) {
+      const now = Date.now();
+      if (now - lastTap < 300) resetZoom(true);
+      lastTap = now;
+    }
   });
 })();
 
