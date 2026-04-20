@@ -44,6 +44,8 @@ func main() {
 	// Маршруты
 	r.GET("/", handlers.IndexHandler)
 	r.POST("/contact", handlers.ContactHandler)
+	r.GET("/robots.txt", handlers.RobotsHandler)
+	r.GET("/sitemap.xml", handlers.SitemapHandler)
 
 	// Запуск с graceful shutdown
 	srv := &http.Server{

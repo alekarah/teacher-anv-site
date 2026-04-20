@@ -6,6 +6,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ .Title }}</title>
   <meta name="description" content="{{ .Description }}">
+  <meta name="keywords" content="репетитор начальные классы, репетитор Апрелевка, репетитор Подмосковье, репетитор онлайн, русский язык 1-4 класс, математика начальная школа, подготовка к школе, Агарёва репетитор">
+  <meta name="author" content="Агарёва Наталья Владимировна">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="{{ .CanonicalURL }}">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ .Description }}">
+  <meta property="og:url" content="{{ .CanonicalURL }}">
+  <meta property="og:image" content="{{ .CanonicalURL }}/static/img/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Репетитор Агарёва Н.В.">
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Репетитор Агарёва Наталья Владимировна",
+    "description": "{{ .Description }}",
+    "url": "{{ .CanonicalURL }}",
+    "image": "{{ .CanonicalURL }}/static/img/ava.jpg",
+    "priceRange": "₽₽",
+    "areaServed": [
+      {"@type": "City", "name": "Апрелевка"},
+      {"@type": "AdministrativeArea", "name": "Московская область"},
+      {"@type": "City", "name": "Москва"}
+    ],
+    "serviceType": "Репетиторские услуги",
+    "knowsAbout": ["Русский язык", "Математика", "Чтение", "Подготовка к школе", "Начальные классы"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Занятия с репетитором",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Русский язык"}, "price": "1200", "priceCurrency": "RUB"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Математика"}, "price": "1200", "priceCurrency": "RUB"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Чтение"}, "price": "1000", "priceCurrency": "RUB"},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Подготовка к школе"}, "price": "1000", "priceCurrency": "RUB"}
+      ]
+    },
+    "person": {
+      "@type": "Person",
+      "name": "Агарёва Наталья Владимировна",
+      "jobTitle": "Учитель начальных классов",
+      "description": "Учитель начальных классов с 14-летним стажем, диплом с отличием"
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/css/base.css">
