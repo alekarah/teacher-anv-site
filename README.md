@@ -63,10 +63,5 @@ Workflow после деплоя: `git push` на GitHub → `git pull` на VPS
 
 ## Ожидаем от клиента
 
-- Актуальный номер телефона 89209850112
-- Email для контактов yettik@mail.ru
-- Макс https://max.ru/u/f9LHodD0cOL9UutN72zWTL6yBqtbuMpPBd269dTjYa2wm-oWz5n6_OO55qk
-- VK https://vk.com/id27053298 
-- ватсап 89209850112
 - Скриншоты отзывов от родителей
 - Фото для og-cover.jpg (1200×630px) — превью в соцсетях
