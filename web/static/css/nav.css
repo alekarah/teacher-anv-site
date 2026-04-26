@@ -35,6 +35,15 @@ nav.scrolled {
   transition: color .35s, text-shadow .35s;
   text-shadow: 0 1px 4px rgba(0, 0, 0, .4), 0 0 12px rgba(0, 0, 0, .25);
 }
+.nav-logo-icon {
+  width: 26px;
+  height: 34px;
+  flex-shrink: 0;
+  transition: transform .35s;
+}
+.nav-logo:hover .nav-logo-icon {
+  transform: rotate(-8deg) scale(1.08);
+}
 nav.scrolled .nav-logo {
   color: var(--bark);
   text-shadow: none;

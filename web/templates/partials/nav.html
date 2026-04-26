@@ -1,6 +1,24 @@
 {{ define "nav" }}
 <nav>
-  <a href="/" class="nav-logo">Агарёва Н.&thinsp;В.</a>
+  <a href="/" class="nav-logo">
+    <svg class="nav-logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 40" fill="none" aria-hidden="true">
+      <!-- левая страница книги -->
+      <path d="M4 18 C10 16 16 18 16 18 L16 34 C10 32 4 34 4 34 Z" fill="currentColor" opacity="0.2"/>
+      <path d="M4 18 C10 16 16 18 16 18 L16 34 C10 32 4 34 4 34 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <!-- правая страница книги -->
+      <path d="M16 18 C22 16 28 18 28 18 L28 34 C22 32 16 34 16 34 Z" fill="currentColor" opacity="0.1"/>
+      <path d="M16 18 C22 16 28 18 28 18 L28 34 C22 32 16 34 16 34 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <!-- корешок -->
+      <line x1="16" y1="18" x2="16" y2="34" stroke="currentColor" stroke-width="1.6"/>
+      <!-- стебель ростка -->
+      <line x1="16" y1="18" x2="16" y2="3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <!-- листик слева -->
+      <path d="M16 11 C16 11 7 7 5 11 C5 11 9 16 16 14 Z" fill="currentColor"/>
+      <!-- листик справа -->
+      <path d="M16 6 C16 6 25 2 27 6 C27 6 23 11 16 9 Z" fill="currentColor"/>
+    </svg>
+    Агарёва Н.&thinsp;В.
+  </a>
   <ul class="nav-links" id="navLinks">
 <li><a href="#about">Обо мне</a></li>
     <li><a href="#seasonsScroll">Сезоны</a></li>
