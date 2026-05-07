@@ -92,6 +92,7 @@
   #bigRingSvg text { display: none; }
 
   /* Credentials */
+  .creds-section { padding-top: 2.5rem; }
   .creds-grid { grid-template-columns: 1fr; }
 
   /* Seasons */
@@ -171,4 +172,18 @@
 
   /* Contact */
   .ct-inner { width: 95%; }
+}
+
+/* ── Компенсация Windows масштабирования 125%-200% ── */
+@media screen and (hover: hover) and (min-width: 1024px) and (min-resolution: 120dpi) {
+  html { zoom: 0.9; }
+}
+@media screen and (hover: hover) and (min-width: 1024px) and (min-resolution: 144dpi) {
+  html { zoom: 0.8; }
+}
+@media screen and (hover: hover) and (min-width: 1024px) and (min-resolution: 168dpi) {
+  html { zoom: 0.7; }
+}
+@media screen and (hover: hover) and (min-width: 1024px) and (min-resolution: 192dpi) {
+  html { zoom: 0.62; }
 }
