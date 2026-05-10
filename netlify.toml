@@ -1,5 +1,5 @@
 [build]
-  publish = "."
+  publish = "web"
   ignore = "exit 0"
 
 [[headers]]
