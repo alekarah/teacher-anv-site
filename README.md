@@ -51,21 +51,12 @@ go run ./cmd/server
 | `web/static/css/` | Стили |
 | `web/static/img/` | Изображения |
 
-## Деплой на Netlify
+## Деплой
 
-Подробно — в [DEPLOY.md](DEPLOY.md). Кратко:
+Сайт: https://repetitor-agareva.ru  
+Деплой автоматический — при `git push` в ветку `main` Netlify обновляет сайт сам.
 
-```bash
-# 1. Запустить сервер
-go run ./cmd/server
-
-# 2. Сгенерировать статику
-curl http://localhost:8080 -o index.html
-curl http://localhost:8080/robots.txt -o robots.txt
-curl http://localhost:8080/sitemap.xml -o sitemap.xml
-```
-
-Затем перетащить папку с файлами на [netlify.com](https://netlify.com).
+Подробный workflow изменений — в [DEPLOY.md](DEPLOY.md).
 
 ## Ожидаем от клиента
 
