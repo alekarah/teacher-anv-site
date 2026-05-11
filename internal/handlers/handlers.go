@@ -3,6 +3,7 @@ package handlers
 import (
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -16,6 +17,7 @@ type PageData struct {
 	TeacherName      string
 	TeacherShortName string
 	CanonicalURL     string
+	Year             int
 }
 
 func defaultPage() PageData {
@@ -25,6 +27,7 @@ func defaultPage() PageData {
 		TeacherName:      "Агарёва Наталья Владимировна",
 		TeacherShortName: "Агарёва Н. В.",
 		CanonicalURL:     siteURL,
+		Year:             time.Now().Year(),
 	}
 }
 
@@ -40,10 +43,12 @@ func RobotsHandler(c *gin.Context) {
 
 // SitemapHandler — отдаёт sitemap.xml
 func SitemapHandler(c *gin.Context) {
+	lastmod := time.Now().Format("2006-01-02")
 	xml := `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>` + siteURL + `/</loc>
+    <lastmod>` + lastmod + `</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>

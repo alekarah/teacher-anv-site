@@ -6,10 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ .Title }}</title>
   <meta name="description" content="{{ .Description }}">
-  <meta name="keywords" content="репетитор начальные классы, репетитор Апрелевка, репетитор Подмосковье, репетитор онлайн, русский язык 1-4 класс, математика начальная школа, подготовка к школе, Агарёва репетитор">
+  <meta name="keywords" content="репетитор начальные классы, репетитор онлайн, репетитор Москва, репетитор Санкт-Петербург, репетитор Апрелевка, репетитор Подмосковье, русский язык 1-4 класс, математика начальная школа, подготовка к школе, Агарёва репетитор">
   <meta name="author" content="Агарёва Наталья Владимировна">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0D3D1A">
   <link rel="canonical" href="{{ .CanonicalURL }}">
+  <link rel="alternate" hreflang="ru" href="{{ .CanonicalURL }}">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -32,10 +34,17 @@
     "url": "{{ .CanonicalURL }}",
     "image": "{{ .CanonicalURL }}/static/img/ava.jpg",
     "priceRange": "₽₽",
+    "telephone": "+7 (920) 985-01-12",
     "areaServed": [
+      {"@type": "City", "name": "Москва"},
+      {"@type": "City", "name": "Санкт-Петербург"},
+      {"@type": "City", "name": "Новосибирск"},
+      {"@type": "City", "name": "Екатеринбург"},
+      {"@type": "City", "name": "Казань"},
+      {"@type": "City", "name": "Нижний Новгород"},
       {"@type": "City", "name": "Апрелевка"},
       {"@type": "AdministrativeArea", "name": "Московская область"},
-      {"@type": "City", "name": "Москва"}
+      {"@type": "Country", "name": "Россия"}
     ],
     "serviceType": "Репетиторские услуги",
     "knowsAbout": ["Русский язык", "Математика", "Чтение", "Подготовка к школе", "Начальные классы"],
@@ -49,6 +58,12 @@
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Подготовка к школе"}, "price": "1000", "priceCurrency": "RUB"}
       ]
     },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "3",
+      "bestRating": "5"
+    },
     "person": {
       "@type": "Person",
       "name": "Агарёва Наталья Владимировна",
@@ -61,17 +76,13 @@
   <link rel="icon" href="/static/img/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="/static/img/hero.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/hero.css">
-  <link rel="stylesheet" href="/static/css/nav.css">
-  <link rel="stylesheet" href="/static/css/about.css">
-  <link rel="stylesheet" href="/static/css/credentials.css">
-  <link rel="stylesheet" href="/static/css/seasons.css">
-  <link rel="stylesheet" href="/static/css/services.css">
-  <link rel="stylesheet" href="/static/css/reviews.css">
-  <link rel="stylesheet" href="/static/css/contact.css">
-  <link rel="stylesheet" href="/static/css/mobile.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="/static/js/main.js" defer></script>
+  <script src="/static/js/seasons.js" defer></script>
+  <script src="/static/js/contact.js" defer></script>
 </head>
 <body>
 
@@ -91,9 +102,6 @@
   </div>
 </div>
 
-<script src="/static/js/main.js"></script>
-<script src="/static/js/seasons.js"></script>
-<script src="/static/js/contact.js"></script>
 </body>
 </html>
 {{ end }}

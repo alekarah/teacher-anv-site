@@ -6,10 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Репетитор начальных классов — Агарёва Наталья Владимировна | Апрелевка, Москва, онлайн</title>
   <meta name="description" content="Репетитор по всем предметам начальной школы с 14-летним стажем. Апрелевка, Подмосковье, Москва и онлайн. Русский язык, математика, чтение, подготовка к школе. Диплом с отличием.">
-  <meta name="keywords" content="репетитор начальные классы, репетитор Апрелевка, репетитор Подмосковье, репетитор онлайн, русский язык 1-4 класс, математика начальная школа, подготовка к школе, Агарёва репетитор">
+  <meta name="keywords" content="репетитор начальные классы, репетитор онлайн, репетитор Москва, репетитор Санкт-Петербург, репетитор Апрелевка, репетитор Подмосковье, русский язык 1-4 класс, математика начальная школа, подготовка к школе, Агарёва репетитор">
   <meta name="author" content="Агарёва Наталья Владимировна">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0D3D1A">
   <link rel="canonical" href="https://repetitor-agareva.ru">
+  <link rel="alternate" hreflang="ru" href="https://repetitor-agareva.ru">
 
   
   <meta property="og:type" content="website">
@@ -32,10 +34,17 @@
     "url": "https:\/\/repetitor-agareva.ru",
     "image": "https:\/\/repetitor-agareva.ru/static/img/ava.jpg",
     "priceRange": "₽₽",
+    "telephone": "+7 (920) 985-01-12",
     "areaServed": [
+      {"@type": "City", "name": "Москва"},
+      {"@type": "City", "name": "Санкт-Петербург"},
+      {"@type": "City", "name": "Новосибирск"},
+      {"@type": "City", "name": "Екатеринбург"},
+      {"@type": "City", "name": "Казань"},
+      {"@type": "City", "name": "Нижний Новгород"},
       {"@type": "City", "name": "Апрелевка"},
       {"@type": "AdministrativeArea", "name": "Московская область"},
-      {"@type": "City", "name": "Москва"}
+      {"@type": "Country", "name": "Россия"}
     ],
     "serviceType": "Репетиторские услуги",
     "knowsAbout": ["Русский язык", "Математика", "Чтение", "Подготовка к школе", "Начальные классы"],
@@ -49,6 +58,12 @@
         {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Подготовка к школе"}, "price": "1000", "priceCurrency": "RUB"}
       ]
     },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "3",
+      "bestRating": "5"
+    },
     "person": {
       "@type": "Person",
       "name": "Агарёва Наталья Владимировна",
@@ -61,17 +76,13 @@
   <link rel="icon" href="/static/img/favicon.svg" type="image/svg+xml">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="/static/img/hero.png">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/static/css/base.css">
-  <link rel="stylesheet" href="/static/css/hero.css">
-  <link rel="stylesheet" href="/static/css/nav.css">
-  <link rel="stylesheet" href="/static/css/about.css">
-  <link rel="stylesheet" href="/static/css/credentials.css">
-  <link rel="stylesheet" href="/static/css/seasons.css">
-  <link rel="stylesheet" href="/static/css/services.css">
-  <link rel="stylesheet" href="/static/css/reviews.css">
-  <link rel="stylesheet" href="/static/css/contact.css">
-  <link rel="stylesheet" href="/static/css/mobile.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="/static/js/main.js" defer></script>
+  <script src="/static/js/seasons.js" defer></script>
+  <script src="/static/js/contact.js" defer></script>
 </head>
 <body>
 
@@ -163,7 +174,7 @@
     </svg>
     
     <div class="hero-photo-placeholder">
-      <img src="/static/img/ava.jpg" alt="Агарёва Наталья Владимировна">
+      <img src="/static/img/ava.jpg" alt="Агарёва Наталья Владимировна" width="576" height="768">
     </div>
   </div>
 </section>
@@ -255,8 +266,8 @@
 
   <div class="about-classroom reveal">
     <div class="classroom-carousel" id="classroomCarousel">
-      <img class="carousel-slide active" src="/static/img/classroom-thumb.jpg" data-lightbox-src="/static/img/classroom.jpg" alt="Кабинет Натальи Владимировны — 1 сентября" data-lightbox>
-      <img class="carousel-slide" src="/static/img/classroom-2-thumb.jpg" data-lightbox-src="/static/img/classroom-2.jpg" alt="Кабинет Натальи Владимировны — 2 сентября" data-lightbox>
+      <img class="carousel-slide active" src="/static/img/classroom-thumb.jpg" data-lightbox-src="/static/img/classroom.jpg" alt="Кабинет Натальи Владимировны — 1 сентября" width="1200" height="900" loading="lazy" data-lightbox>
+      <img class="carousel-slide" src="/static/img/classroom-2-thumb.jpg" data-lightbox-src="/static/img/classroom-2.jpg" alt="Кабинет Натальи Владимировны — 2 сентября" width="1200" height="900" loading="lazy" data-lightbox>
     </div>
     <div class="about-classroom-cap" id="classroomCap">Мой кабинет · 1 сентября</div>
   </div>
@@ -431,7 +442,7 @@
     </div>
 
     <div class="creds-poster reveal">
-      <img src="/static/img/s-dnem-uchitelya-thumb.jpg" data-lightbox-src="/static/img/s-dnem-uchitelya.jpg" alt="Стенгазета от учеников — С Днём учителя" data-lightbox>
+      <img src="/static/img/s-dnem-uchitelya-thumb.jpg" data-lightbox-src="/static/img/s-dnem-uchitelya.jpg" alt="Стенгазета от учеников — С Днём учителя" width="1200" height="900" loading="lazy" data-lightbox>
       <div class="creds-poster-cap">Стенгазета от учеников · День учителя</div>
     </div>
 
@@ -459,7 +470,7 @@
           <a href="#contact" class="panel-btn">🌸 Записаться на знакомство</a>
         </div>
         <div class="panel-art">
-          <img class="season-img" src="/static/img/spring.png" alt="Весна — начало занятий">
+          <img class="season-img" src="/static/img/spring.png" alt="Весна — начало занятий" width="512" height="504" loading="lazy">
         </div>
       </div>
     </div>
@@ -482,7 +493,7 @@
           <a href="#services" class="panel-btn">🌿 Все занятия</a>
         </div>
         <div class="panel-art">
-          <img class="season-img" src="/static/img/summer.png" alt="Лето — активные занятия">
+          <img class="season-img" src="/static/img/summer.png" alt="Лето — активные занятия" width="512" height="505" loading="lazy">
         </div>
       </div>
     </div>
@@ -505,7 +516,7 @@
           <a href="#reviews" class="panel-btn">🍂 Отзывы</a>
         </div>
         <div class="panel-art">
-          <img class="season-img" src="/static/img/autumn.png" alt="Осень — результаты">
+          <img class="season-img" src="/static/img/autumn.png" alt="Осень — результаты" width="512" height="504" loading="lazy">
         </div>
       </div>
     </div>
@@ -528,7 +539,7 @@
           <a href="#contact" class="panel-btn">❄️ Записаться</a>
         </div>
         <div class="panel-art">
-          <img class="season-img" src="/static/img/winter.png" alt="Зима — прочные знания">
+          <img class="season-img" src="/static/img/winter.png" alt="Зима — прочные знания" width="512" height="503" loading="lazy">
         </div>
       </div>
     </div>
@@ -725,7 +736,7 @@
     </svg>
     Агарёва Н. В.
   </div>
-  <span>Репетитор начальных классов · 1–4 класс · Онлайн</span>
+  <span>© 2026 Агарёва Н. В. · Репетитор начальных классов · 1–4 класс · Онлайн · Все права защищены</span>
   <div class="footer-links">
     <a href="tel:+79209850112">+7 (920) 985-01-12</a>
   </div>
@@ -744,8 +755,5 @@
   </div>
 </div>
 
-<script src="/static/js/main.js"></script>
-<script src="/static/js/seasons.js"></script>
-<script src="/static/js/contact.js"></script>
 </body>
 </html>
