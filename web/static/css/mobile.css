@@ -174,6 +174,12 @@
   .ct-inner { width: 95%; }
 }
 
+/* ── iOS Safari: background-attachment:fixed не поддерживается на тач-устройствах ── */
+@media (hover: none) {
+  .hero-sec,
+  .contact-sec { background-attachment: scroll; }
+}
+
 /* ── Компенсация Windows масштабирования 125%-200% ── */
 @media screen and (hover: hover) and (min-width: 1024px) and (min-resolution: 120dpi) {
   html { zoom: 0.9; }

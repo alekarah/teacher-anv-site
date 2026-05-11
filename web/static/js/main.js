@@ -275,6 +275,8 @@ if (rings.length && info && hlRing && diagram) {
 
   function initFit() {
     fitScale = calcFitScale();
+    MIN = fitScale;
+    MAX = 1;
     scale = fitScale;
     fitOffset();
     applyTransform(false);
@@ -346,6 +348,7 @@ if (rings.length && info && hlRing && diagram) {
   });
 
   // Touch pinch & pan
+  let MIN, MAX;
   let touches = [], initDist = 0, initScale = 1, initMx = 0, initMy = 0, initOx = 0, initOy = 0;
   viewport.addEventListener('touchstart', e => {
     touches = Array.from(e.touches);
